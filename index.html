@@ -1,0 +1,91 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+
+    <form>
+        <input type="submit" />
+    </form>
+
+
+
+    <script>
+           /*
+            function IpAddr() {
+                var ipAddr;
+
+                $.ajax({
+                    type: "GET",
+                    url: "http://geoapi.bcapps.org/?type=json",
+                    dataType: "json",          
+                    success: function(result) {
+
+                        //alert(result.ipAddress);
+                        alert(result);
+                        //ipAddr = result.ipAddress.val();
+                      
+                    },
+                    error: function() {
+                        alert("Talep esnasında sorun oluştu. Yeniden deneyin");
+                        
+                        //ipAddr = "";
+                    },
+                   
+                });
+                
+                return ipAddr;
+            }
+
+           
+            $("form").submit(function () {
+                //var ip = IpAddr();
+                //alert(IpAddr());
+                IpAddr();
+            });
+            */
+
+        $(document).ready(function(){
+
+            var ipAddr;          
+
+          
+                $.ajax({
+                    type: "GET",
+                    url: "http://geoapi.bcapps.org/?type=json",
+                    dataType: "json",
+                    async: "true",          
+                    success: function(result) {
+
+                        //alert(result.ipAddress);
+                        //alert(result);
+                        ipAddr = result.ipAddress;
+                        alert(ipAddr);
+
+                        //return ipAddr2;
+                    },
+                    error: function() {
+                        alert("Talep esnasında sorun oluştu. Yeniden deneyin");
+                        
+                        ipAddr = "";
+                    },                  
+                   
+                });
+
+           
+
+
+            $("form").submit(function () {
+                //var ip = IpAddr();
+                //alert(IpAddr());
+                alert(IpAddr());
+            });
+
+        });
+       
+
+    </script>
+
+</body>
+</html>
